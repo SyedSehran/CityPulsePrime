@@ -113,6 +113,7 @@ export async function registerOfficial(payload: {
   password: string;
   department: string;
   official_badge_id: string;
+  registration_secret: string;
   phone?: string;
 }): Promise<{ access_token: string; user: Profile }> {
   const res = await fetch('/api/v1/auth/register-official', {

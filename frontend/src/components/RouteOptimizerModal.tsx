@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { X, Navigation, MapPin, Clock, Truck, CheckCircle2 } from 'lucide-react';
+import { X, Navigation, MapPin, Truck } from 'lucide-react';
 
 interface RouteOptimizerModalProps {
   isOpen: boolean;

@@ -6,7 +6,7 @@ import type { UserRole } from '../types/incident';
 interface ProtectedRouteProps {
   children: React.ReactNode;
   allowedRoles: UserRole[];
-  redirectTo: string;
+  redirectTo?: string;
 }
 
 export const ProtectedRoute: React.FC<ProtectedRouteProps> = ({
@@ -15,6 +15,8 @@ export const ProtectedRoute: React.FC<ProtectedRouteProps> = ({
   redirectTo,
 }) => {
   const { user, loading, isAuthenticated } = useAuth();
+  const defaultRedirect = allowedRoles.includes('official') || allowedRoles.includes('admin') ? '/gov/login' : '/auth';
+  const targetRedirect = redirectTo || defaultRedirect;
 
   if (loading) {
     return (
@@ -25,11 +27,11 @@ export const ProtectedRoute: React.FC<ProtectedRouteProps> = ({
   }
 
   if (!isAuthenticated || !user) {
-    return <Navigate to={redirectTo} replace />;
+    return <Navigate to={targetRedirect} replace />;
   }
 
   if (!allowedRoles.includes(user.role)) {
-    return <Navigate to={redirectTo} replace />;
+    return <Navigate to={targetRedirect} replace />;
   }
 
   return <>{children}</>;

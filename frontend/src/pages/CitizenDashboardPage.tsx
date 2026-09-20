@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Camera, MapPin, Send, Shield, AlertTriangle, ThumbsUp, ThumbsDown, CheckCircle, Navigation, Layers } from 'lucide-react';
+import { Camera, MapPin, Send, ThumbsUp, ThumbsDown, CheckCircle, Layers } from 'lucide-react';
 import { PriorityBreakdownCard } from '../components/PriorityBreakdownCard';
 
 export const CitizenDashboardPage: React.FC = () => {

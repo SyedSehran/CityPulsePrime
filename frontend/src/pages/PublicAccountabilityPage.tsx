@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Shield, MapPin, Award, TrendingUp, Clock, AlertTriangle, CheckCircle, Search } from 'lucide-react';
+import { Shield, MapPin, Award, TrendingUp, Clock, AlertTriangle, Search } from 'lucide-react';
 import { PriorityBreakdownCard } from '../components/PriorityBreakdownCard';
 
 export const PublicAccountabilityPage: React.FC = () => {

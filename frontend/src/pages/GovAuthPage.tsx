@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
-import { Building2, ArrowRight, Loader2, ShieldCheck, Mail, Lock, User, Eye, EyeOff, Award } from 'lucide-react';
+import { Building2, ArrowRight, Loader2, ShieldCheck, Mail, Lock, User, Eye, EyeOff, Award, KeyRound } from 'lucide-react';
 import { loginUser, registerOfficial } from '../services/api';
 import { useAuth } from '../context/AuthContext';
 
@@ -11,6 +11,7 @@ export const GovAuthPage: React.FC = () => {
   const [password, setPassword] = useState('');
   const [department, setDepartment] = useState('Roads & Works');
   const [badgeId, setBadgeId] = useState('');
+  const [registrationSecret, setRegistrationSecret] = useState('MCD-GOV-SECURE-2026');
   const [showPassword, setShowPassword] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
@@ -19,7 +20,7 @@ export const GovAuthPage: React.FC = () => {
   const navigate = useNavigate();
 
   const handleFillDemo = () => {
-    setEmail('verma.mcd@delhi.gov.in');
+    setEmail('official@citypulse.gov');
     setPassword('password123');
     setIsLogin(true);
   };
@@ -44,6 +45,7 @@ export const GovAuthPage: React.FC = () => {
           password,
           department,
           official_badge_id: badgeId,
+          registration_secret: registrationSecret,
         });
         login(res.access_token, res.user);
         navigate('/gov/dashboard');
@@ -57,47 +59,19 @@ export const GovAuthPage: React.FC = () => {
 
   return (
     <div className="auth-ambient-bg">
-      {/* Header */}
-      <header className="app-header">
-        <div className="header-container">
-          <div className="brand">
-            <div className="brand-icon" style={{ background: 'var(--accent-primary)', color: '#fff' }}>
-              <Building2 size={16} strokeWidth={2.5} />
-            </div>
-            <span>MCD Official Portal</span>
-          </div>
-          <Link
-            to="/"
-            style={{
-              fontSize: 12,
-              color: 'var(--text-secondary)',
-              textDecoration: 'none',
-              padding: '6px 14px',
-              borderRadius: 'var(--radius-full)',
-              border: '1px solid var(--border-subtle)',
-              background: 'var(--bg-secondary)',
-              transition: 'var(--transition-fast)',
-            }}
-          >
-            ← Citizen Portal
-          </Link>
-        </div>
-      </header>
-
-      {/* Main Container */}
       <div style={{ flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '40px 20px' }}>
-        <div className="auth-card" style={{ borderColor: 'rgba(0, 113, 227, 0.25)' }}>
+        <div className="auth-card">
           <div className="auth-header">
-            <div className="auth-icon-badge" style={{ background: 'rgba(0, 113, 227, 0.12)', color: 'var(--accent-primary)', borderColor: 'rgba(0, 113, 227, 0.3)' }}>
-              <Building2 size={22} strokeWidth={2.2} />
+            <div className="auth-icon-badge">
+              <Building2 size={24} strokeWidth={2.2} />
             </div>
             <h1 className="auth-title">
-              {isLogin ? 'Government Staff Sign In' : 'Register Official Account'}
+              {isLogin ? 'Government Official Login' : 'Register Official Account'}
             </h1>
             <p className="auth-subtitle">
               {isLogin
-                ? 'Restricted municipal triage, team dispatch, and repair proof submission.'
-                : 'Create official credentials for verified government and field crew access.'}
+                ? 'Restricted municipal triage, crew route dispatch, and repair proof submission.'
+                : 'Create official credentials for verified government supervisors and field crew access.'}
             </p>
           </div>
 
@@ -128,7 +102,7 @@ export const GovAuthPage: React.FC = () => {
           {/* Quick Demo Autofill Hint */}
           {isLogin && (
             <div className="demo-badge">
-              <span>Demo MCD: <code>verma.mcd@delhi.gov.in</code></span>
+              <span>Demo Officer: <code>official@citypulse.gov</code></span>
               <button type="button" className="demo-fill-btn" onClick={handleFillDemo}>
                 Auto-fill
               </button>
@@ -138,13 +112,14 @@ export const GovAuthPage: React.FC = () => {
           {error && (
             <div
               style={{
-                background: 'rgba(239, 68, 68, 0.1)',
-                border: '1px solid rgba(239, 68, 68, 0.25)',
-                color: '#f87171',
+                background: '#fef2f2',
+                border: '1px solid #fecaca',
+                color: '#dc2626',
                 padding: '10px 14px',
                 borderRadius: 'var(--radius-sm)',
                 fontSize: 12,
                 marginBottom: 18,
+                fontWeight: 500,
               }}
             >
               {error}
@@ -161,7 +136,7 @@ export const GovAuthPage: React.FC = () => {
                     <input
                       type="text"
                       className="form-input-lux"
-                      placeholder="e.g. Officer Rajesh Kumar"
+                      placeholder="e.g. Inspector R. Sharma"
                       value={fullName}
                       onChange={(e) => setFullName(e.target.value)}
                       required
@@ -172,7 +147,7 @@ export const GovAuthPage: React.FC = () => {
                 <div className="form-group">
                   <label className="form-label">Municipal Department</label>
                   <select
-                    className="form-select-lux"
+                    className="form-select-lux !pl-3.5"
                     value={department}
                     onChange={(e) => setDepartment(e.target.value)}
                     required
@@ -198,6 +173,24 @@ export const GovAuthPage: React.FC = () => {
                       required
                     />
                   </div>
+                </div>
+
+                <div className="form-group">
+                  <label className="form-label">Government Agency Authorization Code</label>
+                  <div className="input-container">
+                    <KeyRound className="input-icon-left" size={16} />
+                    <input
+                      type="password"
+                      className="form-input-lux"
+                      placeholder="e.g. MCD-GOV-SECURE-2026"
+                      value={registrationSecret}
+                      onChange={(e) => setRegistrationSecret(e.target.value)}
+                      required
+                    />
+                  </div>
+                  <span style={{ fontSize: 11, color: 'var(--text-muted)', marginTop: 4, display: 'block' }}>
+                    Required invite code issued to verified personnel (Demo: <code>MCD-GOV-SECURE-2026</code>)
+                  </span>
                 </div>
               </>
             )}
@@ -229,7 +222,6 @@ export const GovAuthPage: React.FC = () => {
                   onChange={(e) => setPassword(e.target.value)}
                   required
                 />
-                {/* Show Password Button */}
                 <button
                   type="button"
                   className="input-icon-btn"
@@ -249,15 +241,20 @@ export const GovAuthPage: React.FC = () => {
               disabled={loading}
             >
               {loading && <Loader2 className="spin" size={15} />}
-              {loading ? 'Verifying Credentials...' : isLogin ? 'Access MCD Dashboard' : 'Create Official Profile'}
+              {loading ? 'Verifying Credentials...' : isLogin ? 'Access Officer Command Hub' : 'Create Official Profile'}
               {!loading && <ArrowRight size={14} />}
             </button>
           </form>
 
-          {/* Security Badge */}
           <div className="security-trust">
-            <ShieldCheck size={13} color="var(--accent-primary)" />
+            <ShieldCheck size={14} color="var(--accent-primary)" />
             <span>Government-Grade Identity Verification</span>
+          </div>
+
+          <div style={{ textAlign: 'center', marginTop: 16 }}>
+            <Link to="/auth" style={{ fontSize: 12, color: 'var(--text-secondary)', textDecoration: 'none' }}>
+              Are you a citizen? <strong style={{ color: 'var(--accent-primary)' }}>Citizen Portal →</strong>
+            </Link>
           </div>
         </div>
       </div>

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Shield, Truck, FileText, CheckCircle, AlertTriangle, MapPin, Clock, Sparkles } from 'lucide-react';
+import { Shield, Truck, FileText, AlertTriangle, Sparkles } from 'lucide-react';
 import { PriorityBreakdownCard } from '../components/PriorityBreakdownCard';
 import { RouteOptimizerModal } from '../components/RouteOptimizerModal';
 import { BeforeAfterAuditorModal } from '../components/BeforeAfterAuditorModal';

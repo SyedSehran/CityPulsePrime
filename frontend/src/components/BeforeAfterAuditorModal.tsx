@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { X, CheckCircle, AlertTriangle, Eye, Upload, Sparkles } from 'lucide-react';
+import { X, CheckCircle, AlertTriangle, Upload, Sparkles } from 'lucide-react';
 
 interface BeforeAfterAuditorModalProps {
   isOpen: boolean;
