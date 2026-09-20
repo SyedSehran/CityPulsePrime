@@ -8,7 +8,7 @@ load_dotenv()
 
 
 class Settings(BaseModel):
-    PROJECT_NAME: str = Field(default_factory=lambda: os.getenv("PROJECT_NAME", "CivicFix Backend"))
+    PROJECT_NAME: str = Field(default_factory=lambda: os.getenv("PROJECT_NAME", "JawabDehi AI Backend"))
     API_V1_STR: str = Field(default_factory=lambda: os.getenv("API_V1_STR", "/api/v1"))
     
     # Supabase Settings

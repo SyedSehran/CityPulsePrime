@@ -27,10 +27,10 @@ from backend.app.core.security import hash_password
 _SEED_PW_HASH = hash_password("password123")
 
 _IN_MEMORY_PROFILES: Dict[str, Dict[str, Any]] = {
-    "citizen@citypulse.gov": {
+    "citizen@jawabdehi.gov": {
         "id": "c1111111-1111-1111-1111-111111111111",
         "full_name": "Citizen User",
-        "email": "citizen@citypulse.gov",
+        "email": "citizen@jawabdehi.gov",
         "password_hash": _SEED_PW_HASH,
         "role": "citizen",
         "phone": "+1-555-0199",
@@ -47,10 +47,10 @@ _IN_MEMORY_PROFILES: Dict[str, Dict[str, Any]] = {
         "civic_points": 25,
         "created_at": datetime.now(timezone.utc).isoformat()
     },
-    "official@citypulse.gov": {
+    "official@jawabdehi.gov": {
         "id": "o2222222-2222-2222-2222-222222222222",
         "full_name": "Chief Inspector Sharma",
-        "email": "official@citypulse.gov",
+        "email": "official@jawabdehi.gov",
         "password_hash": _SEED_PW_HASH,
         "role": "official",
         "department": "Public Works & Infrastructure",

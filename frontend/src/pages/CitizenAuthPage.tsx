@@ -18,7 +18,7 @@ export const CitizenAuthPage: React.FC = () => {
   const navigate = useNavigate();
 
   const handleFillDemo = () => {
-    setEmail('citizen@citypulse.gov');
+    setEmail('citizen@jawabdehi.gov');
     setPassword('password123');
     setIsLogin(true);
   };
@@ -62,7 +62,7 @@ export const CitizenAuthPage: React.FC = () => {
               <Shield size={24} strokeWidth={2.2} />
             </div>
             <h1 className="auth-title">
-              {isLogin ? 'Citizen Portal Sign In' : 'Join CityPulse Network'}
+              {isLogin ? 'Citizen Portal Sign In' : 'Join JawabDehi AI Network'}
             </h1>
             <p className="auth-subtitle">
               {isLogin
@@ -98,7 +98,7 @@ export const CitizenAuthPage: React.FC = () => {
           {/* Quick Demo Autofill Hint */}
           {isLogin && (
             <div className="demo-badge">
-              <span>Demo: <code>citizen@citypulse.gov</code></span>
+              <span>Demo: <code>citizen@jawabdehi.gov</code></span>
               <button type="button" className="demo-fill-btn" onClick={handleFillDemo}>
                 Auto-fill
               </button>

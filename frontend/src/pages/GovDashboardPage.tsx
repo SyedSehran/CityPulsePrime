@@ -44,7 +44,7 @@ export const GovDashboardPage: React.FC = () => {
                 <Shield className="w-4 h-4 text-amber-600" /> Municipal Command & Dispatch Hub
               </div>
               <h1 className="text-3xl font-extrabold tracking-tight text-stone-900 font-heading">
-                CityPulse Prime <span className="bg-gradient-to-r from-orange-600 to-amber-600 bg-clip-text text-transparent">Executive Operations</span>
+                JawabDehi AI <span className="bg-gradient-to-r from-orange-600 to-amber-600 bg-clip-text text-transparent">Executive Operations</span>
               </h1>
               <p className="text-sm text-stone-600 mt-1">
                 Algorithmic Priority Triage, CV Before-vs-After Audit Control, VRP Crew Dispatch, & Agentic Contractor RFPs

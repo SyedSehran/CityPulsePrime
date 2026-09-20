@@ -3,7 +3,7 @@ import type { Incident, Profile, TriageResult } from '../types/incident';
 const API_BASE = '/api/v1/complaints';
 
 function getAuthHeaders(): HeadersInit {
-  const token = localStorage.getItem('civicfix_token');
+  const token = localStorage.getItem('jawabdehi_token');
   return token ? { Authorization: `Bearer ${token}` } : {};
 }
 

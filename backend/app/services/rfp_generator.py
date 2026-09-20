@@ -71,7 +71,7 @@ C. MANDATORY COMPUTER VISION VERIFICATION: Contractor / Crew must upload
 D. Closure will undergo automated CV Before vs After AI structural validation.
 
 --------------------------------------------------------------------------------
-ISSUED BY: Department of Public Works & CityPulse Municipal Oversight
+ISSUED BY: Department of Public Works & JawabDehi AI Municipal Oversight
 STAMP: APPROVED FOR FAST-TRACK CONTRACTOR DISPATCH
 ================================================================================
 """

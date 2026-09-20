@@ -20,7 +20,7 @@ export const GovAuthPage: React.FC = () => {
   const navigate = useNavigate();
 
   const handleFillDemo = () => {
-    setEmail('official@citypulse.gov');
+    setEmail('official@jawabdehi.gov');
     setPassword('password123');
     setIsLogin(true);
   };
@@ -102,7 +102,7 @@ export const GovAuthPage: React.FC = () => {
           {/* Quick Demo Autofill Hint */}
           {isLogin && (
             <div className="demo-badge">
-              <span>Demo Officer: <code>official@citypulse.gov</code></span>
+              <span>Demo Officer: <code>official@jawabdehi.gov</code></span>
               <button type="button" className="demo-fill-btn" onClick={handleFillDemo}>
                 Auto-fill
               </button>

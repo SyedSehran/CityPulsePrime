@@ -1,14 +1,14 @@
 <div align="center">
 
-# 🏛️ CityPulse Prime
-### AI-Driven Municipal Governance & Algorithmic Triage Engine
+# 🏛️ JawabDehi AI
+### The Automated Civic Accountability & Dispatch Engine for Municipal Governance in Smart Cities.
 
-[![Version](https://img.shields.io/badge/CityPulse-Prime%20v2.0-3b82f6?style=for-the-badge)](https://github.com/SyedSehran/CityPulsePrime)
+[![Version](https://img.shields.io/badge/JawabDehi%20AI-v2.0-3b82f6?style=for-the-badge)](https://github.com/SyedSehran/CityPulsePrime)
 [![FastAPI](https://img.shields.io/badge/Backend-FastAPI%20%7C%20Python-009688?style=for-the-badge)](https://fastapi.tiangolo.com)
 [![React](https://img.shields.io/badge/Frontend-React%2019%20%7C%20Vite-61dafb?style=for-the-badge)](https://react.dev)
 [![License](https://img.shields.io/badge/License-MIT-10b981?style=for-the-badge)](LICENSE)
 
-**CityPulse Prime** is an enterprise-grade civic issue intelligence and municipal accountability platform. It replaces arbitrary dispatch queues with mathematical priority scoring, computer vision resolution auditing, agentic work-order generation, crew route optimization, and open public transparency.
+**JawabDehi AI** is an enterprise-grade civic issue intelligence and municipal accountability platform. It replaces arbitrary dispatch queues with mathematical priority scoring, computer vision resolution auditing, agentic work-order generation, crew route optimization, and open public transparency.
 
 </div>
 

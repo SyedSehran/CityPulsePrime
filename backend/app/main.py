@@ -16,8 +16,8 @@ logging.basicConfig(
 )
 
 app = FastAPI(
-    title="CityPulse Prime Backend Engine",
-    description="AI-Driven Municipal Governance & Algorithmic Issue Triage Platform",
+    title="JawabDehi AI Backend Engine",
+    description="The Automated Civic Accountability & Dispatch Engine for Municipal Governance in Smart Cities",
     version="2.0.0",
     openapi_url=f"{settings.API_V1_STR}/openapi.json"
 )
@@ -54,14 +54,14 @@ async def startup_event():
     """
     scheduler = SLAScheduler.get_instance()
     asyncio.create_task(scheduler.start_background_cron())
-    logging.info("CityPulse Prime SLA Background Engine Initialized.")
+    logging.info("JawabDehi AI SLA Background Engine Initialized.")
 
 
 @app.get("/health", tags=["General"])
 def health():
     return {
         "status": "healthy",
-        "platform": "CityPulse Prime Engine v2.0",
+        "platform": "JawabDehi AI Engine v2.0",
         "database": "connected (active in-memory state engine + direct DB fallback)"
     }
 
@@ -76,7 +76,7 @@ def serve_react_app(full_path: str = ""):
         return FileResponse(dist_index)
 
     return {
-        "name": "CityPulse Prime Engine",
+        "name": "JawabDehi AI Engine",
         "version": "2.0.0",
         "docs": "/docs",
         "message": "Frontend operational. Access Vite dev server at http://localhost:5173"

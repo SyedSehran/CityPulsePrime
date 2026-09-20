@@ -16,7 +16,7 @@ export const Header: React.FC<HeaderProps> = ({ currentRole, onRoleChange, userN
           <div className="brand-icon">
             <Shield size={16} strokeWidth={2.5} />
           </div>
-          <span>CivicFix</span>
+          <span>JawabDehi AI</span>
         </div>
 
         {/* Apple Segmented Control: Citizen vs MCD Authority */}

@@ -81,7 +81,7 @@ export const PublicAccountabilityPage: React.FC = () => {
                 <Shield className="w-4 h-4 text-amber-600" /> Open Public Governance Portal
               </div>
               <h1 className="text-3xl font-extrabold tracking-tight text-stone-900 font-heading">
-                CityPulse Prime <span className="bg-gradient-to-r from-orange-600 to-amber-600 bg-clip-text text-transparent">Municipal Accountability Dashboard</span>
+                JawabDehi AI <span className="bg-gradient-to-r from-orange-600 to-amber-600 bg-clip-text text-transparent">Municipal Accountability Dashboard</span>
               </h1>
               <p className="text-sm text-stone-600 mt-1 max-w-2xl">
                 Real-time algorithmic priority auditing, ward-level resolution analytics, and open civic issue leaderboards. No login required.

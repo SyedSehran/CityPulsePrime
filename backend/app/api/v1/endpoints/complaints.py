@@ -362,6 +362,6 @@ async def get_public_transparency_data():
     analytics = DirectDB.get_public_governance_analytics()
     return {
         "status": "success",
-        "platform": "CityPulse Prime Transparency Dashboard",
+        "platform": "JawabDehi AI Transparency Dashboard",
         "analytics": analytics
     }

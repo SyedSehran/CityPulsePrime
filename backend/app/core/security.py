@@ -8,7 +8,7 @@ import jwt
 from backend.app.core.config import settings
 
 # Secret key for JWT signing (can be set in .env)
-JWT_SECRET_KEY = os.getenv("JWT_SECRET_KEY", "civicfix-super-secure-secret-key-prod-2026-auth")
+JWT_SECRET_KEY = os.getenv("JWT_SECRET_KEY", "jawabdehi-super-secure-secret-key-prod-2026-auth")
 JWT_ALGORITHM = "HS256"
 ACCESS_TOKEN_EXPIRE_MINUTES = 60 * 24 * 7  # 7 days
 

@@ -26,7 +26,7 @@ const Navbar: React.FC = () => {
         </div>
         <div>
           <span className="font-extrabold text-lg text-stone-900 tracking-tight font-heading flex items-center gap-1.5">
-            CityPulse <span className="bg-gradient-to-r from-orange-600 to-amber-600 bg-clip-text text-transparent">Prime</span>
+            JawabDehi AI <span className="bg-gradient-to-r from-orange-600 to-amber-600 bg-clip-text text-transparent">Civic Engine</span>
           </span>
           <span className="block text-[9.5px] text-stone-500 font-mono tracking-wider uppercase font-semibold">
             AI Civic Governance Platform
@@ -98,7 +98,7 @@ const RootRedirect: React.FC = () => {
   if (loading) {
     return (
       <div className="min-h-screen flex items-center justify-center text-stone-500 text-sm font-medium">
-        Initializing CityPulse Prime Engine...
+        Initializing JawabDehi AI Engine...
       </div>
     );
   }
