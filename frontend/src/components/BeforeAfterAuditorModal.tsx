@@ -78,31 +78,31 @@ export const BeforeAfterAuditorModal: React.FC<BeforeAfterAuditorModalProps> = (
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-md p-4">
-      <div className="glass-card max-w-4xl w-full p-6 relative rounded-2xl border border-rose-500/30 overflow-hidden max-h-[90vh] overflow-y-auto">
-        <button onClick={onClose} className="absolute top-4 right-4 text-slate-400 hover:text-white p-1">
+    <div className="fixed inset-0 z-50 flex items-center justify-center bg-stone-900/40 backdrop-blur-md p-4">
+      <div className="glass-card max-w-4xl w-full p-6 relative rounded-2xl border border-amber-200 bg-white overflow-hidden max-h-[90vh] overflow-y-auto shadow-2xl">
+        <button onClick={onClose} className="absolute top-4 right-4 text-stone-400 hover:text-stone-800 p-1">
           <X className="w-6 h-6" />
         </button>
 
-        <div className="flex items-center gap-3 mb-4">
-          <div className="p-3 bg-rose-500/20 text-rose-400 rounded-xl border border-rose-500/40">
-            <Sparkles className="w-6 h-6" />
+        <div className="flex items-center gap-3 mb-5">
+          <div className="p-3 bg-amber-50 text-amber-700 rounded-xl border border-amber-200">
+            <Sparkles className="w-6 h-6 text-amber-600" />
           </div>
           <div>
-            <h2 className="text-xl font-bold text-white">CV "Before vs. After" Resolution Auditor</h2>
-            <p className="text-xs text-slate-400">Automated structural computer vision audit preventing fake ticket closures</p>
+            <h2 className="text-xl font-bold text-stone-900 font-heading">CV "Before vs. After" Resolution Auditor</h2>
+            <p className="text-xs text-stone-500">Automated structural computer vision audit preventing fake ticket closures</p>
           </div>
         </div>
 
         {/* Split Image Canvas */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
           {/* Before Photo */}
-          <div className="bg-slate-900/80 p-3 rounded-xl border border-slate-800">
-            <div className="flex items-center justify-between text-xs font-semibold text-amber-400 mb-2">
+          <div className="bg-stone-50 p-3.5 rounded-xl border border-stone-200">
+            <div className="flex items-center justify-between text-xs font-semibold text-amber-800 mb-2">
               <span>BEFORE: Reported Problem</span>
-              <span className="bg-amber-500/10 px-2 py-0.5 rounded border border-amber-500/30">Original Ticket</span>
+              <span className="bg-amber-100 text-amber-800 px-2 py-0.5 rounded font-bold">Original Ticket</span>
             </div>
-            <div className="aspect-video bg-black/60 rounded-lg overflow-hidden flex items-center justify-center border border-slate-800">
+            <div className="aspect-video bg-stone-100 rounded-lg overflow-hidden flex items-center justify-center border border-stone-200">
               <img
                 src={incident.primary_image_url || "/static/test_images/pothole_test.jpg"}
                 alt="Before"
@@ -115,19 +115,19 @@ export const BeforeAfterAuditorModal: React.FC<BeforeAfterAuditorModalProps> = (
           </div>
 
           {/* After Photo Upload */}
-          <div className="bg-slate-900/80 p-3 rounded-xl border border-slate-800">
-            <div className="flex items-center justify-between text-xs font-semibold text-emerald-400 mb-2">
+          <div className="bg-stone-50 p-3.5 rounded-xl border border-stone-200">
+            <div className="flex items-center justify-between text-xs font-semibold text-emerald-800 mb-2">
               <span>AFTER: Upload Proof of Repair</span>
-              <span className="bg-emerald-500/10 px-2 py-0.5 rounded border border-emerald-500/30">Worker Verification</span>
+              <span className="bg-emerald-100 text-emerald-800 px-2 py-0.5 rounded font-bold">Worker Verification</span>
             </div>
-            <div className="aspect-video bg-black/60 rounded-lg overflow-hidden relative flex flex-col items-center justify-center border border-dashed border-slate-700 hover:border-blue-500 transition-all cursor-pointer">
+            <div className="aspect-video bg-white rounded-lg overflow-hidden relative flex flex-col items-center justify-center border-2 border-dashed border-amber-300 hover:border-amber-500 transition-all cursor-pointer">
               {preview ? (
                 <img src={preview} alt="After Preview" className="w-full h-full object-cover" />
               ) : (
                 <label className="w-full h-full flex flex-col items-center justify-center cursor-pointer p-4 text-center">
-                  <Upload className="w-8 h-8 text-slate-400 mb-2" />
-                  <span className="text-xs text-slate-300 font-semibold">Click to select 'After' photo</span>
-                  <span className="text-[10px] text-slate-500 mt-1">High resolution proof photo required</span>
+                  <Upload className="w-8 h-8 text-amber-600 mb-2" />
+                  <span className="text-xs text-stone-800 font-bold">Click to select 'After' photo</span>
+                  <span className="text-[10px] text-stone-500 mt-0.5">High resolution proof photo required</span>
                   <input type="file" accept="image/*" onChange={handleFileChange} className="hidden" />
                 </label>
               )}
@@ -137,15 +137,15 @@ export const BeforeAfterAuditorModal: React.FC<BeforeAfterAuditorModalProps> = (
 
         {/* Audit Status Display */}
         {errorMsg && (
-          <div className="p-3 bg-rose-500/15 border border-rose-500/40 rounded-xl text-xs text-rose-300 flex items-center gap-2 mb-4">
-            <AlertTriangle className="w-5 h-5 shrink-0" />
+          <div className="p-3 bg-rose-50 border border-rose-200 rounded-xl text-xs text-rose-700 flex items-center gap-2 mb-4 font-medium">
+            <AlertTriangle className="w-5 h-5 text-rose-600 shrink-0" />
             <span>{errorMsg}</span>
           </div>
         )}
 
         {auditResult && (
-          <div className="p-3 bg-emerald-500/15 border border-emerald-500/40 rounded-xl text-xs text-emerald-300 flex items-center gap-2 mb-4">
-            <CheckCircle className="w-5 h-5 shrink-0" />
+          <div className="p-3 bg-emerald-50 border border-emerald-200 rounded-xl text-xs text-emerald-800 flex items-center gap-2 mb-4 font-medium">
+            <CheckCircle className="w-5 h-5 text-emerald-600 shrink-0" />
             <div>
               <div className="font-bold">CV AUDIT PASSED (Structural Shift Verified)</div>
               <div>{auditResult.details}</div>
@@ -154,20 +154,22 @@ export const BeforeAfterAuditorModal: React.FC<BeforeAfterAuditorModalProps> = (
         )}
 
         {/* Resolution Notes input */}
-        <div className="mb-4">
-          <label className="block text-xs font-semibold text-slate-300 mb-1">Work Performed & Material Specs</label>
+        <div className="mb-5">
+          <label className="block text-xs font-semibold text-stone-700 mb-1.5 font-heading">
+            Work Performed & Material Specs
+          </label>
           <input
             type="text"
             value={notes}
             onChange={(e) => setNotes(e.target.value)}
             placeholder="e.g. Asphalting completed, drainage pipe unblocked, site cleaned..."
-            className="w-full bg-slate-900 border border-slate-700 rounded-lg p-2.5 text-xs text-white focus:outline-none focus:border-blue-500"
+            className="w-full bg-white border border-stone-200 rounded-xl p-3 text-xs text-stone-900 focus:outline-none focus:border-amber-500 focus:ring-2 focus:ring-amber-500/10 shadow-sm"
           />
         </div>
 
-        <div className="flex justify-end gap-3 pt-3 border-t border-slate-800">
+        <div className="flex justify-end gap-3 pt-3 border-t border-stone-200">
           <button onClick={onClose} className="btn-secondary text-xs">Cancel</button>
-          <button onClick={handleAuditAndSubmit} disabled={loading} className="btn-primary text-xs bg-emerald-600 hover:bg-emerald-500">
+          <button onClick={handleAuditAndSubmit} disabled={loading} className="btn-primary text-xs">
             {loading ? "Running Computer Vision Audit..." : "Run CV Audit & Resolve Ticket"}
           </button>
         </div>
