@@ -19,26 +19,55 @@ def haversine_meters(lat1: float, lon1: float, lat2: float, lon2: float) -> floa
     return R * c
 
 
+from backend.app.core.security import hash_password
+
 # ==============================================================================
 # IN-MEMORY STORE FALLBACK (For zero-dependency instant local execution)
 # ==============================================================================
+_SEED_PW_HASH = hash_password("password123")
+
 _IN_MEMORY_PROFILES: Dict[str, Dict[str, Any]] = {
     "citizen@citypulse.gov": {
         "id": "c1111111-1111-1111-1111-111111111111",
         "full_name": "Citizen User",
         "email": "citizen@citypulse.gov",
-        "password_hash": "$2b$12$eImiTXuWVxfM37uY4JANjO.g4N/Y.xS.2jO/cKj1Q1Jb.4W2K/K1e", # password: password123
+        "password_hash": _SEED_PW_HASH,
         "role": "citizen",
-        "phone": "+1-555-0199"
+        "phone": "+1-555-0199",
+        "civic_points": 10,
+        "created_at": datetime.now(timezone.utc).isoformat()
+    },
+    "priya.singh@gmail.com": {
+        "id": "c3333333-3333-3333-3333-333333333333",
+        "full_name": "Priya Singh",
+        "email": "priya.singh@gmail.com",
+        "password_hash": _SEED_PW_HASH,
+        "role": "citizen",
+        "phone": "+91 98765 43210",
+        "civic_points": 25,
+        "created_at": datetime.now(timezone.utc).isoformat()
     },
     "official@citypulse.gov": {
         "id": "o2222222-2222-2222-2222-222222222222",
         "full_name": "Chief Inspector Sharma",
         "email": "official@citypulse.gov",
-        "password_hash": "$2b$12$eImiTXuWVxfM37uY4JANjO.g4N/Y.xS.2jO/cKj1Q1Jb.4W2K/K1e",
+        "password_hash": _SEED_PW_HASH,
         "role": "official",
         "department": "Public Works & Infrastructure",
-        "official_badge_id": "MUNI-BADGE-884"
+        "official_badge_id": "MUNI-BADGE-884",
+        "civic_points": 50,
+        "created_at": datetime.now(timezone.utc).isoformat()
+    },
+    "verma.mcd@delhi.gov.in": {
+        "id": "o4444444-4444-4444-4444-444444444444",
+        "full_name": "Officer Rajesh Verma",
+        "email": "verma.mcd@delhi.gov.in",
+        "password_hash": _SEED_PW_HASH,
+        "role": "official",
+        "department": "Roads & Works",
+        "official_badge_id": "MCD-7721",
+        "civic_points": 50,
+        "created_at": datetime.now(timezone.utc).isoformat()
     }
 }
 
@@ -175,7 +204,9 @@ class DirectDB:
             "role": role,
             "phone": phone,
             "department": department,
-            "official_badge_id": official_badge_id
+            "official_badge_id": official_badge_id,
+            "civic_points": 10 if role == "citizen" else 50,
+            "created_at": datetime.now(timezone.utc).isoformat()
         }
         _IN_MEMORY_PROFILES[email_clean] = account
         return account

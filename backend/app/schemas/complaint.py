@@ -25,7 +25,7 @@ class ProfileCreate(ProfileBase):
 class ProfileResponse(ProfileBase):
     id: Union[str, UUID]
     civic_points: int = 10
-    created_at: datetime
+    created_at: Optional[datetime] = None
 
     model_config = ConfigDict(from_attributes=True)
 
