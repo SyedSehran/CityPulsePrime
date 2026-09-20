@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Camera, MapPin, Send, ThumbsUp, ThumbsDown, CheckCircle, Layers, Sparkles } from 'lucide-react';
+import { Camera, MapPin, Send, ThumbsUp, ThumbsDown, CheckCircle, Layers, Sparkles, Users } from 'lucide-react';
 import { PriorityBreakdownCard } from '../components/PriorityBreakdownCard';
 
 export const CitizenDashboardPage: React.FC = () => {
@@ -212,12 +212,12 @@ export const CitizenDashboardPage: React.FC = () => {
         {/* Right Column: Live Community Incidents Feed */}
         <div className="lg:col-span-7 space-y-6">
           <div className="glass-card p-6 rounded-2xl border border-stone-200 bg-white shadow-sm">
-            <div className="flex items-center justify-between mb-6 pb-3 border-b border-stone-100">
+            <div className="flex items-center justify-between mb-5 pb-3 border-b border-stone-100">
               <div>
                 <h2 className="text-xl font-bold text-stone-900 flex items-center gap-2 font-heading">
-                  <Layers className="w-5 h-5 text-amber-600" /> Active Community Incident Clusters
+                  <Layers className="w-5 h-5 text-amber-600" /> Community Incident Clusters
                 </h2>
-                <p className="text-xs text-stone-500">Proximity-Weighted Voting (&lt;100m = 1.0x, &lt;1km = 0.5x, &gt;1km = 0.1x)</p>
+                <p className="text-xs text-stone-500 mt-0.5">Verified neighborhood issues with proximity-weighted voting</p>
               </div>
               <a href="/public" className="btn-secondary text-xs">
                 <Sparkles className="w-3.5 h-3.5 text-amber-600" /> View Public Map
@@ -232,25 +232,49 @@ export const CitizenDashboardPage: React.FC = () => {
               <div className="space-y-4">
                 {incidents.map((inc) => (
                   <div key={inc.id} className="bg-white p-5 rounded-xl border border-stone-200 hover:border-amber-300 hover:shadow-md transition-all">
-                    <div className="flex flex-col md:flex-row md:items-center justify-between gap-3 mb-2">
-                      <h3 className="font-bold text-base text-stone-900 font-heading">{inc.title}</h3>
-                      <div className="flex items-center gap-2">
-                        <span className="priority-badge priority-high">P = {inc.priority_score} / 100</span>
+                    {/* Header Row: Title & Priority Score */}
+                    <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2.5 mb-2.5">
+                      <div className="flex items-center gap-2 flex-wrap">
+                        {inc.category && (
+                          <span className="text-[10px] uppercase font-bold tracking-wider px-2 py-0.5 rounded-md bg-amber-50 text-amber-800 border border-amber-200">
+                            {inc.category}
+                          </span>
+                        )}
+                        <h3 className="font-bold text-base text-stone-900 font-heading">{inc.title}</h3>
+                      </div>
+
+                      <div className="flex items-center gap-2 shrink-0">
+                        <span className="priority-badge priority-high">
+                          Priority {inc.priority_score}/100
+                        </span>
                         {inc.is_disputed && (
-                          <span className="text-xs font-bold text-rose-700 bg-rose-50 px-2.5 py-0.5 rounded border border-rose-200">
-                            FLAGGED DISPUTED
+                          <span className="text-xs font-bold text-rose-700 bg-rose-50 px-2.5 py-0.5 rounded-full border border-rose-200">
+                            Disputed
                           </span>
                         )}
                       </div>
                     </div>
 
-                    <div className="text-xs text-stone-600 mb-3 flex flex-wrap gap-4">
-                      <span>Status: <strong className="text-amber-700 bg-amber-50 px-2 py-0.5 rounded border border-amber-200">{inc.status}</strong></span>
-                      <span>Address: <strong className="text-stone-800">{inc.address}</strong></span>
-                      <span>Total Reports: <strong className="text-amber-800 font-semibold">{inc.total_reports} Verified</strong></span>
+                    {/* Clean Meta Chips */}
+                    <div className="flex flex-wrap items-center gap-2 text-xs text-stone-600 mb-2">
+                      <span className="inline-flex items-center gap-1.5 bg-stone-50 px-2.5 py-1 rounded-md border border-stone-200 text-stone-700 font-medium">
+                        <MapPin className="w-3.5 h-3.5 text-amber-600" />
+                        {inc.address}
+                      </span>
+                      <span className="inline-flex items-center gap-1.5 bg-stone-50 px-2.5 py-1 rounded-md border border-stone-200 text-stone-700 font-medium">
+                        <Users className="w-3.5 h-3.5 text-amber-600" />
+                        {inc.total_reports} Verified Reports
+                      </span>
+                      <span className={`inline-flex items-center gap-1 px-2.5 py-1 rounded-md text-[11px] font-bold uppercase tracking-wider ${
+                        inc.status === 'OPEN'
+                          ? 'bg-amber-50 text-amber-800 border border-amber-200'
+                          : 'bg-emerald-50 text-emerald-800 border border-emerald-200'
+                      }`}>
+                        Status: {inc.status}
+                      </span>
                     </div>
 
-                    {/* Formula Breakdown Card (White & Yellow/Amber Scheme) */}
+                    {/* Formula Breakdown Card (Streamlined & Clean) */}
                     <PriorityBreakdownCard score={inc.priority_score} breakdown={inc.priority_breakdown} isOverdueBoosted={inc.is_sla_overdue} />
 
                     {/* Resolution Proof & Voting Section */}
