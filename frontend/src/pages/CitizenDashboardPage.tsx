@@ -217,7 +217,6 @@ export const CitizenDashboardPage: React.FC = () => {
                 <h2 className="text-xl font-bold text-stone-900 flex items-center gap-2 font-heading">
                   <Layers className="w-5 h-5 text-amber-600" /> Community Incident Clusters
                 </h2>
-                <p className="text-xs text-stone-500 mt-0.5">Verified neighborhood issues with proximity-weighted voting</p>
               </div>
               <a href="/public" className="btn-secondary text-xs">
                 <Sparkles className="w-3.5 h-3.5 text-amber-600" /> View Public Map

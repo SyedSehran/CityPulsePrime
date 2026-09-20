@@ -54,9 +54,7 @@ export const PriorityBreakdownCard: React.FC<PriorityBreakdownCardProps> = ({ sc
             </span>
           )}
         </div>
-        <span className="text-[11px] text-stone-600 font-medium">
-          Model: <strong className="text-stone-800">40/30/20/10</strong>
-        </span>
+        
       </div>
 
       {/* 4 Clean Metric Blocks */}
@@ -69,10 +67,7 @@ export const PriorityBreakdownCard: React.FC<PriorityBreakdownCardProps> = ({ sc
             </span>
             <span className="text-[9.5px] text-amber-700/80 font-bold">40%</span>
           </div>
-          <div className="flex items-baseline justify-between">
-            <span className="text-sm font-bold text-stone-900">+{sevPts}</span>
-            <span className="text-[10px] text-stone-600 font-medium">Norm: {b.severity_norm ?? 0}%</span>
-          </div>
+          <span className="text-sm font-bold text-stone-900">+{sevPts}</span>
         </div>
 
         {/* Cluster Size */}
@@ -83,10 +78,7 @@ export const PriorityBreakdownCard: React.FC<PriorityBreakdownCardProps> = ({ sc
             </span>
             <span className="text-[9.5px] text-yellow-700/80 font-bold">30%</span>
           </div>
-          <div className="flex items-baseline justify-between">
-            <span className="text-sm font-bold text-stone-900">+{clusterPts}</span>
-            <span className="text-[10px] text-stone-600 font-medium">{b.total_reports ?? 1} reports</span>
-          </div>
+          <span className="text-sm font-bold text-stone-900">+{clusterPts}</span>
         </div>
 
         {/* SLA Risk */}
@@ -97,10 +89,7 @@ export const PriorityBreakdownCard: React.FC<PriorityBreakdownCardProps> = ({ sc
             </span>
             <span className="text-[9.5px] text-orange-700/80 font-bold">20%</span>
           </div>
-          <div className="flex items-baseline justify-between">
-            <span className="text-sm font-bold text-stone-900">+{slaPts}</span>
-            <span className="text-[10px] text-stone-600 font-medium">{b.hours_active ?? 0}h active</span>
-          </div>
+          <span className="text-sm font-bold text-stone-900">+{slaPts}</span>
         </div>
 
         {/* Ward Risk */}
@@ -111,10 +100,7 @@ export const PriorityBreakdownCard: React.FC<PriorityBreakdownCardProps> = ({ sc
             </span>
             <span className="text-[9.5px] text-stone-600 font-bold">10%</span>
           </div>
-          <div className="flex items-baseline justify-between">
-            <span className="text-sm font-bold text-stone-900">+{wardPts}</span>
-            <span className="text-[10px] text-stone-600 font-medium">Risk: {b.ward_risk_baseline ?? 50}</span>
-          </div>
+          <span className="text-sm font-bold text-stone-900">+{wardPts}</span>
         </div>
       </div>
     </div>
